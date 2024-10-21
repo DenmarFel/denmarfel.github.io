@@ -6,8 +6,11 @@
     <link rel="manifest" href="/pwa-manifest.json">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Denmar Feliciano</title>
-    <script type="module" crossorigin src="/assets/index-aUxjmZu1.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-S-gGKmXw.css">
+
+
+
+    <script type="module" crossorigin src="/assets/index-ZiwuedrS.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-qeZX6XEJ.css">
   </head>
   <body>
     <div id="app"></div>
@@ -17,6 +20,21 @@
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
       }
+    </script>
+
+    <!-- Change CSS based on Website -->
+    <script>
+      function setTheme() {
+        let body = document.body;
+        let hashList = window.location.hash.split('/');
+        if (hashList.length < 2) {
+          body.className = ""
+          return;
+        }
+        body.className = hashList[1];
+      }
+      setTheme();
+      window.addEventListener('popstate', setTheme)
     </script>
   </body>
 </html>
